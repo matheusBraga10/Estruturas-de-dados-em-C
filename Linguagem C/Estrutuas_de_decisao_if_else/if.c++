@@ -17,9 +17,6 @@ int main (void)
     {
         printf("O valor da soma eh maior que 10 \n");
     }
-    else
-    {
-        printf("O valor da soma é menor que 10 \n");
-    }
+    
     return (0);
 }
