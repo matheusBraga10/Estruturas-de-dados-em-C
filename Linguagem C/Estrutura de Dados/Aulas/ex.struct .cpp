@@ -46,10 +46,10 @@ devemos trabalhar da forma listada abaixo, com listas e/ou matrizes em struct*/
     scanf("%d", &aluno.matricula);
     
     printf("Nome do aluno: ");
-    scanf("%s", aluno.nome);
+    fgets(aluno.nome, 50, stdin);
     
     printf("Diciplina do aluno: ");
-    scanf("%s", aluno.diciplina);
+    fgets(aluno.diciplina, 30, stdin);
     
     printf("Nota do aluno: ");
     scanf("%f", &aluno.nota);
