@@ -69,26 +69,46 @@ int main()
         for(int i = 0; i < 3; i++)
         {
             printf("Matricula do aluno: ");
-            scanf("¨%d", &aluno[i].matricula);
+            scanf("%d", &aluno[i].matricula);
             
             printf("Nome do aluno: ");
-            scanf("¨%s", &aluno[i].nome);
+            scanf("%s", &aluno[i].nome);
             
             printf("Diciplina do aluno: ");
-            scanf("¨%s", &aluno[i].diciplina);
+            scanf("%s", &aluno[i].diciplina);
             
             printf("Nota do aluno: ");
-            scanf("¨%.2f", &aluno[i].nota);
+            scanf("%.2f", &aluno[i].nota);
             
-            printf("Data de nascimento do aluno: ");
-            scanf("¨%d", &aluno[i].data_aluno.dia);
+            printf("Data de nascimento: ");
+            printf("Dia: ");
+            scanf("%d", &aluno[i].data_aluno.dia);
+
+            printf("Mes: ");
+            scanf("%d", &aluno[i].data_aluno.mes);
+
+            printf("Ano: ");
+            scanf("%d", &aluno[i].data_aluno.ano);
             
-            printf("Endereço do aluno: ");
-            scanf("¨%d", &aluno[i].endereco_aluno.rua);
+            printf("Endereço: ");
+            printf("Rua: ");
+            scanf("%s", &aluno[i].endereco_aluno.rua);
+
+            printf("Bairro: ");
+            scanf("%s", &aluno[i].endereco_aluno.bairro);
+
+            printf("Cidade: ");
+            scanf("%s", &aluno[i].endereco_aluno.cidade);
+
+            printf("Estado: ");
+            scanf("%s", &aluno[i].endereco_aluno.estado);
+
+            printf("CEP: ");
+            scanf("%d", &aluno[i].endereco_aluno.cep);
         }
-}
-        }
-    }
+
+        
+    
 
     return 0;
 }

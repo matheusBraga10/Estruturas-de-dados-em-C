@@ -1,7 +1,7 @@
 // Programa ficha do Aluno
 // Declaração de Biblioteca
-#include <string.h>
-#include <stdlib.h>
+//#include <string.h>
+//#include <stdlib.h>
  //funções de I/O nos dispositivos stdin, stdout e files
 #include <stdio.h>
 //#include <conio.h>//funções de manipulação de caracteres na tela
@@ -46,10 +46,10 @@ devemos trabalhar da forma listada abaixo, com listas e/ou matrizes em struct*/
     scanf("%d", &aluno.matricula);
     
     printf("Nome do aluno: ");
-    fgets(aluno.nome, 50, stdin);
+    scanf("%s", &aluno.nome);
     
     printf("Diciplina do aluno: ");
-    fgets(aluno.diciplina, 30, stdin);
+    scanf("%s", &aluno.diciplina);
     
     printf("Nota do aluno: ");
     scanf("%f", &aluno.nota);
