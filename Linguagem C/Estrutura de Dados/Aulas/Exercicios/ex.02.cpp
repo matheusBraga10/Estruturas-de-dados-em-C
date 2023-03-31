@@ -1,5 +1,8 @@
 /*
-Crie uma struct "Carro" com os campos "marca", "modelo", "ano" e "preço". Em seguida, declare um array dessa struct com tamanho 3 e preencha-o com informações de carros diferentes. Em seguida, percorra o array e imprima as informações de cada carro na tela.
+Crie uma struct "Carro" com os campos "marca", "modelo", "ano" e "preço". 
+Em seguida, declare um array dessa struct com tamanho 3 e preencha-o com 
+informações de carros diferentes. Em seguida, percorra o array e imprima as 
+informações de cada carro na tela.
 */
 
 #include<stdio.h>
