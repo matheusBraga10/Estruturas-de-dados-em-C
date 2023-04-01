@@ -46,8 +46,8 @@ int main()
         struct ficha_aluno
         {
             int matricula;
-            char nome;
-            char diciplina;
+            char nome[50];
+            char diciplina[50];
             float nota;
             
             data data_aluno;
@@ -72,15 +72,18 @@ int main()
             scanf("%d", &aluno[i].matricula);
             
             printf("Nome do aluno: ");
-            scanf("%s", &aluno[i].nome);
+            fflush(stdin);
+            fgets(aluno[i].nome, 50, stdin);
             
             printf("Diciplina do aluno: ");
-            scanf("%s", &aluno[i].diciplina);
+            fflush(stdin);
+            fgets(aluno[i].diciplina, 50, stdin);
             
             printf("Nota do aluno: ");
-            scanf("%.2f", &aluno[i].nota);
+            scanf("%f", &aluno[i].nota);
             
             printf("Data de nascimento: ");
+            
             printf("Dia: ");
             scanf("%d", &aluno[i].data_aluno.dia);
 
@@ -91,17 +94,22 @@ int main()
             scanf("%d", &aluno[i].data_aluno.ano);
             
             printf("Endereço: ");
+            
             printf("Rua: ");
-            scanf("%s", &aluno[i].endereco_aluno.rua);
+            fflush(stdin);
+            fgets(aluno[i].endereco_aluno.rua, 30, stdin);
 
             printf("Bairro: ");
-            scanf("%s", &aluno[i].endereco_aluno.bairro);
+            fflush(stdin);
+            fgets(aluno[i].endereco_aluno.bairro, 30, stdin);
 
             printf("Cidade: ");
-            scanf("%s", &aluno[i].endereco_aluno.cidade);
+            fflush(stdin);
+            fgets(aluno[i].endereco_aluno.cidade, 30, stdin);
 
             printf("Estado: ");
-            scanf("%s", &aluno[i].endereco_aluno.estado);
+            fflush(stdin);
+            fgets(aluno[i].endereco_aluno.estado, 2, stdin);
 
             printf("CEP: ");
             scanf("%d", &aluno[i].endereco_aluno.cep);

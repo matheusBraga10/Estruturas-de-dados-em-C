@@ -22,9 +22,12 @@ int main(void)
     
     printf("\n---------- Cadastro de aluno ----------\n\n");
     printf("Entre com o nome do aluno: ");
+    fflush(stdin);
     fgets(aluno.nome, 40, stdin);
+
     printf("Entre com o numero de matricula do aluno: ");
     scanf("%d", &aluno.numero);
+
     printf("Entre com a nota do aluno: ");
     scanf("%f", &aluno.nota);
     

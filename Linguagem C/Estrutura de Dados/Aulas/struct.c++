@@ -1,7 +1,7 @@
 // Programa ficha do Aluno
 // Declaração de Biblioteca
-//#include <string.h>
-//#include <stdlib.h>
+#include <string.h>
+#include <stdlib.h>
  //funções de I/O nos dispositivos stdin, stdout e files
 #include <stdio.h>
 //#include <conio.h>//funções de manipulação de caracteres na tela
@@ -35,21 +35,23 @@ devemos trabalhar da forma listada abaixo, com listas e/ou matrizes em struct*/
     };
     
     //declaração da variavel aluno do tipo struct ficha_aluno
-    struct ficha_aluno aluno;
+    ficha_aluno aluno;
     
     //função printf - impressão em tela
     //função - scanf - leitura de dados do teclado
     
     printf("\nFicha do aluno\n");
     
-    printf("Matricula do aluno: ");
-    scanf("%d", &aluno.matricula);
-    
     printf("Nome do aluno: ");
-    scanf("%s", &aluno.nome);
+    fflush(stdin);
+    fgets(aluno.nome, 50, stdin);
     
     printf("Diciplina do aluno: ");
-    scanf("%s", &aluno.diciplina);
+    fflush(stdin);
+    fgets(aluno.diciplina, 30, stdin);
+    
+    printf("Matricula do aluno: ");
+    scanf("%d", &aluno.matricula);
     
     printf("Nota do aluno: ");
     scanf("%f", &aluno.nota);
@@ -57,8 +59,8 @@ devemos trabalhar da forma listada abaixo, com listas e/ou matrizes em struct*/
     printf("\nFicha do aluno\n");
     
     printf("Matricula: %d\n", aluno.matricula);
-    printf("Nome: %s\n", aluno.nome);
-    printf("Diciplina: %s\n", aluno.diciplina);
+    printf("Nome: %s", aluno.nome);
+    printf("Diciplina: %s", aluno.diciplina);
     printf("Nota: %.2f\n", aluno.nota);
     
     return 0;
