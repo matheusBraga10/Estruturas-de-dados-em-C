@@ -36,30 +36,30 @@ int main()
     for(int i = 0; i < 3; i++)
     {
         printf("Nome do cliente: ");
-        fflush(stdin);
+        getchar();
         fgets(cliente[i].nome, 40, stdin);
         
         printf("Telefone do cliente: ");
-        fflush(stdin);
+        getchar();
         fgets(cliente[i].telefone, 20, stdin);
         
         printf("Digite o numero: ");
         scanf("%d", &cliente[i].endereco.numero);
 
         printf("Digite a rua: ");
-        fflush(stdin);
+        getchar();
         fgets(cliente[i].endereco.rua, 40, stdin);
         
         printf("Digite o bairro: ");
-        fflush(stdin);
+        getchar();
         fgets(cliente[i].endereco.bairro, 40, stdin);
 
         printf("Digite a cidade: ");
-        fflush(stdin);
+        getchar();
         fgets(cliente[i].endereco.cidade, 40, stdin);
 
         printf("Digite o estado: ");
-        fflush(stdin);
+        getchar();
         fgets(cliente[i].endereco.estado, 3, stdin);
 
         printf("Digite o CEP: ");
@@ -73,6 +73,8 @@ int main()
         
         printf("Digite o ano de nascimento: ");
         scanf("%d", &cliente[i].nascimento.ano);
+
+        printf("---------------------------------\n");
     }
 
     for(int i = 0; i < 3; i++)
