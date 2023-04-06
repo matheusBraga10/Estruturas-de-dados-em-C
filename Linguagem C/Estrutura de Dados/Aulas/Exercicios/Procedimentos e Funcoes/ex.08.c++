@@ -4,15 +4,7 @@
 
 int primo( int num1)
 {
-    for( int i = num1; i >= 0; i--)
-    {
-        if (num1 % i == 0)
-            printf("O numero %d, não é um numero primo", num1);
-
-        else
-            printf("O numero %d, é um numero primo", num1);
-    }
-    return num1;    
+    
 }
 
 int main()
