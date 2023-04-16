@@ -48,8 +48,6 @@ int decimal_hexadecimal(int decimal)
     decimal = decimal / 16;
     hexadecimal = hexadecimal + (resto * i);
     i = i * 10;
-        if(decimal > 10 && decimal < 17)
-            hexadecimal = 
     }
     return hexadecimal;
 }
@@ -59,36 +57,39 @@ int main()
 {
     int opcao, dec, bin, oct, hexa;
     
-    
-    printf("Entre com um valor inteiro: ");
-    scanf("%d", &dec);
-    
-    printf("Informe a base numerica desejada:\n\n2 Binário\n8 Octal\n16 Hexadecimal\nPara converter: ");
-    scanf("%d", &opcao);
-    
-    if(opcao == 2)
+    do
     {
-        bin = decimal_binario(dec);
-        printf("\n\nDecimal = %d\nBinário = %d", dec, bin);
+        printf("Entre com um valor inteiro: ");
+        scanf("%d", &dec);
 
-    printf("\n");
-    }
-    else if(opcao == 8)
-    {
-        oct = decimal_octal(dec);
-        printf("\n\nDecimal = %d\nOctal = %d", dec, oct);
+        printf("Informe a base numerica desejada:\n\n2 Binário\n8 Octal\n16 Hexadecimal\nPara converter: ");
+        scanf("%d", &opcao);
 
-    printf("\n");
-    }
-    else if(opcao == 16)
-    {
-        hexa = decimal_hexadecimal(dec);
-        printf("\n\nDecimal = %d\nHexadecimal = %d", dec, hexa);
+        if(opcao == 2)
+        {
+            bin = decimal_binario(dec);
+            printf("\n\nDecimal = %d\nBinário = %d", dec, bin);
 
-    printf("\n");
-    }    
-    else
-        printf("O valor da base declarada não corresponde às bases programadas.\nFavor entrar com uma das 3 bases programadas.\n\n");
+        printf("\n");
+        }
+        else if(opcao == 8)
+        {
+            oct = decimal_octal(dec);
+            printf("\n\nDecimal = %d\nOctal = %d", dec, oct);
+
+        printf("\n");
+        }
+        else if(opcao == 16)
+        {
+            hexa = decimal_hexadecimal(dec);
+            printf("\n\nDecimal = %d\nHexadecimal = %d", dec, hexa);
+
+        printf("\n");
+        }    
+        else
+            printf("\nO valor da base declarada não corresponde às bases programadas.\nFavor entrar com uma das 3 bases programadas.\n\n");
+    } 
+    while (opcao != 2 && opcao != 8 && opcao != 16);
         
     return 0;
 }
