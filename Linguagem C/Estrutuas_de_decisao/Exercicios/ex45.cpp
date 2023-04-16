@@ -14,25 +14,24 @@ int main()
     printf("Escolha 1: Pedra\nEscolha 2: Papel\nEscolha 3: Tesoura\n\nINFORME SUA JOGADA! ");
     scanf("%f", &jogada);
     
-    if ()
+    
+    if (jogada == 1)
     {
-        precoFinal = precoNormal*0.9;
-        printf("Você recebeu um desconto de 10%%. O valor que você terá de pagar é de %.2f", precoFinal);
+        
+        printf("")
     }
-    else if(condicaoPagamento == 2)
+    else if(jogada == 2)
     {
-        precoFinal = precoNormal*0.95;
-        printf("Você recebeu um desconto de 5%%. O valor que você terá de pagar é de %.2f", precoFinal);
+        
     }
-    else if(condicaoPagamento == 3)
+    else if(jogada == 3)
     {
-        precoFinal = precoNormal;
-        printf("O valor que você terá de pagar é de %.2f", precoFinal);
+        
     }
     else if(condicaoPagamento == 4)
     {
         precoFinal = precoNormal*1.2;
-        printf("Você sofreu um juros de 20%%. O valor que você terá de pagar é de %.2f", precoFinal);
+        printf("Você sofreu um juros de 20%%. O valor que você terá de pagar é de %.2f\n", precoFinal);
     }
     else 
     {
