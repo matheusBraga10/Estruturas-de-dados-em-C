@@ -10,42 +10,85 @@ escolher qual será a base de conversão:
 *******************************************************************************/
 
 #include <stdio.h>
+#include <stdlib.h>
 
-int binario(int inteiro, int resto)
+int decimal_binario(int decimal)
 {
-    for(int i = 0; i < inteiro; i++)
-        resto[i] = inteiro % 2;
+    int resto, binario = 0, i = 1;
+
+    while (decimal != 0)
+    {
+    resto = decimal % 2;
+    decimal = decimal / 2;
+    binario = binario + (resto * i);
+    i = i * 10;
+    }
+    return binario;
 }
+int decimal_octal(int decimal)
+{
+    int resto, octal = 0, i = 1;
+
+    while (decimal != 0)
+    {
+    resto = decimal % 8;
+    decimal = decimal / 8;
+    octal = octal + (resto * i);
+    i = i * 10;
+    }
+    return octal;
+}
+int decimal_hexadecimal(int decimal)
+{
+    int resto, hexadecimal = 0, i = 1;
+
+    while (decimal != 0)
+    {
+    resto = decimal % 16;
+    decimal = decimal / 16;
+    hexadecimal = hexadecimal + (resto * i);
+    i = i * 10;
+        if(decimal > 10 && decimal < 17)
+            hexadecimal = 
+    }
+    return hexadecimal;
+}
+
 
 int main()
 {
-    int opcao, decimal, binario, octal, hexadecimal;
+    int opcao, dec, bin, oct, hexa;
     
     
     printf("Entre com um valor inteiro: ");
-    scanf("%d", &decimal);
+    scanf("%d", &dec);
     
-    printf("Escolha:\n\n: -1 Binário\n-2 Octal\n-3 Hexadecimal\nPara converter: ");
+    printf("Informe a base numerica desejada:\n\n2 Binário\n8 Octal\n16 Hexadecimal\nPara converter: ");
     scanf("%d", &opcao);
     
-    if(opcao == 1)
+    if(opcao == 2)
     {
-        binario = ;
-        printf("Decimal = %d\nBinário = %d", decimal, binario);
+        bin = decimal_binario(dec);
+        printf("\n\nDecimal = %d\nBinário = %d", dec, bin);
+
+    printf("\n");
     }
-    else if(opcao == 2)
+    else if(opcao == 8)
     {
-        octal = ;
-        printf("Decimal = %d\nOctal = %d", decimal, octal);
+        oct = decimal_octal(dec);
+        printf("\n\nDecimal = %d\nOctal = %d", dec, oct);
+
+    printf("\n");
     }
-    else if(opcao == 3)
+    else if(opcao == 16)
     {
-        hexadecimal = ;
-        printf("Decimal = %d\nHéxadecimal = %d", decimal, hexadecimal);
-    }
+        hexa = decimal_hexadecimal(dec);
+        printf("\n\nDecimal = %d\nHexadecimal = %d", dec, hexa);
+
+    printf("\n");
+    }    
     else
-        printf("Opção não válida, digite número de 1 a 3.");
+        printf("O valor da base declarada não corresponde às bases programadas.\nFavor entrar com uma das 3 bases programadas.\n\n");
         
-    
     return 0;
 }
