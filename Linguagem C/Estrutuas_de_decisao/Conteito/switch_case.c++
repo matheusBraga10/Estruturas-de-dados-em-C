@@ -6,6 +6,7 @@ int main(void)
     scanf("%d", &valor);
 //O SWITCH avalia os casos apontados (caso seja 1, imprimir domingo; caso seja 2 imprimir segunda...)
 //Muito usado para menus, onde não se pode trabalhar com condições - NÃO trabalha com equações, somente dados fixos
+/*SÓ EXECUTA OU 1 OU OUTRO. OU O CASO 1 OU OUTRO CASO SELECIONADO*/
     switch (valor)
     {
         //início do bloco do switch

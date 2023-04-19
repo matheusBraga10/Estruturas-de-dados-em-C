@@ -8,7 +8,7 @@ Faça um programa que calcule a soma entre todos os números ímpares que são m
 
 int main()
 {
-    int soma, a, b;
+    int soma, a, b, impar;
 
     printf("entre com o menor valor: ");
     scanf("%d", &a);
@@ -18,15 +18,11 @@ int main()
     
     printf("A soma de todos os numeros impares entre %d e %d é: ", a, b);
 
-    for(int i = 0; i < b - 1; i++)
+    for(int i = a, soma = 0; i < (b - 1); i++)
     {
-        soma = i % 2;
-        if (soma != 0)
-        {
-            soma += soma + i;
-            printf("%d\n", soma);
-        }
-        
+        impar = i % 2;        
+        soma = impar + soma;   
+        printf("%d\n", soma); 
     }
     printf("%d\n", soma);
 
