@@ -1,39 +1,54 @@
 #include<stdio.h>
 #define tam_max 100
 
-int busca(int lista[], int valor)
+int busca(int lista[tam_max], int valor)
 {
-    for(int i = 0; i < tam_max; i++)
+    int achou, i;
+    for(i = 0; i < tam_max; i++)
     {
         if(lista[i] == valor)
         {
-            return i;
+            achou = 1;
+            break;
         }
     }
-    return -1;
+    if(achou == 1)
+        {
+            printf("O valor %d foi encontrado na posição %d\n", valor, i);
+            return i;
+        }
+    else
+        {
+            printf("Valor não encontrado.\n");
+            return -1;
+        }
+    return valor;
 }
 
-int insere(int lista[], int valor)
+int insere(int lista[tam_max], int valor)
 {
     if(lista[tam_max -1] != 0)
     {
-        printf("Erro: Lista cheia");
+        printf("Erro: Lista cheia\n");
         return -1;
     }
-    for(int i = 0; i < tam_max; i++)
+    else
     {
-        if(lista[i] == 0)
+        for(int i = 0; i < tam_max; i++)
         {
-            lista[i] = valor;
-            break;
+            if(lista[i] == 0)
+            {
+                lista[i] = valor;
+                break;
+            }
         }
     }
     return 0;
 }
 
-int remove_valor (int lista[], int valor)
+int remove_valor (int lista[tam_max], int valor)
 {
-    int remove = busca(lista, valor);
+    int i, remove = busca(lista, valor);
     if(remove == -1)
     {
         printf("Valor não encontrado na lista\n");
@@ -50,15 +65,27 @@ int remove_valor (int lista[], int valor)
 
 int main()
 {
-    int vetor[tam_max] = {0};
+    int valor1, valor2, valor3, valor4, valor5, valor6, vetor[tam_max] = {0};
 
-    insere(vetor, 5);
-    insere(vetor, 10);
-    insere(vetor, 15);
-    insere(vetor, 20);
-    remove_valor(vetor, 5);
-    int valor = busca(vetor, 15);
+    valor1 = insere(vetor, 5);
+    valor2 = insere(vetor, 10);
+    valor3 = insere(vetor, 15);
+    valor4 = insere(vetor, 20);
+    
+    printf("Insira a chave de remoção:\n");
+    scanf("%d", &valor5);
+    remove_valor(vetor, valor5);
+    
+    printf("Insira a chave de busca:\n");
+    scanf("%d", &valor6);
+    busca(vetor, valor6);
 
-
+    printf("[ ");
+    for(int i = 0; i < tam_max; i++)
+    {
+        printf(" %d", vetor[i]);
+    }
+    printf(" ]");
+    printf("\n");
     return 0;
 }
