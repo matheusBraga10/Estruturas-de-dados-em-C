@@ -1,0 +1,106 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Lista{
+    int numero;
+    struct Lista *ponteiro; // este ponteiro sempre aponta para o proximo da lista, caso seja o ultimo ele aponta para nulo.
+}Lista;
+
+void inicializaLista(Lista *l){
+    l->numero = 0;
+    l->ponteiro = NULL;
+}
+
+void insereLista(Lista *l, int valor){
+    while(l->ponteiro != NULL){;
+        l = l->ponteiro;
+    }
+    Lista *novo = (Lista *)malloc(sizeof(Lista));
+    novo->numero = valor;
+    novo->ponteiro = NULL;
+    l->ponteiro = novo;
+}
+
+void removeLista(Lista *l, int valor){
+    if(l->ponteiro == NULL){
+        return;
+    }
+    if(l->ponteiro->numero == valor){
+        if(l->ponteiro->ponteiro == NULL){
+            free(l->ponteiro);
+            l->ponteiro == NULL;
+        }
+        else{
+            Lista *aux = (Lista *)malloc(sizeof(Lista));
+            aux->ponteiro = l->ponteiro->ponteiro;
+            free(l->ponteiro);
+            l->ponteiro = aux->ponteiro;
+            free(aux);
+        }
+    }
+    removeLista(l->ponteiro, valor);
+}
+
+void buscaLista(Lista *l, int valor){
+    int i = 0;
+    while(l->ponteiro != NULL){
+        if(l->numero == valor){
+            printf("Valor %d, na posicao %d\n", valor, i);
+            return;
+        }
+        i++;
+        l = l->ponteiro;
+    }
+    if(l->numero == valor){
+        printf("Valor %d, na posicao %d\n", valor, i);
+        return;
+    }
+    printf("Valor nao encontrado na lista\n");
+}
+
+void imprimeLista(Lista *l){
+    while(l->ponteiro != NULL){
+        printf("%d ", l->numero);
+        l = l->ponteiro;
+    }
+    printf("%d ", l->numero);
+    printf("\n");
+}
+
+void limpaLista(Lista *l){
+    while(l->ponteiro != NULL){
+        Lista *aux = (Lista *)malloc(sizeof(Lista));
+        aux = l;
+        l = l->ponteiro;
+        free(aux);
+    }
+    free(l);
+}
+
+int main(){
+
+    Lista l;
+    inicializaLista(&l);
+    insereLista(&l, 10);
+    insereLista(&l, 11);
+    insereLista(&l, 12);
+    insereLista(&l, 13);
+    insereLista(&l, 14);
+
+    imprimeLista(l.ponteiro);
+    buscaLista(l.ponteiro, 12);
+    buscaLista(l.ponteiro, 14);
+    buscaLista(l.ponteiro, 16);
+
+    removeLista(l.ponteiro, 13);
+    imprimeLista(l.ponteiro);
+
+    limpaLista(l.ponteiro);
+    l.ponteiro = NULL;
+    insereLista(&l, 55);
+    insereLista(&l, 56);
+    insereLista(&l, 57);
+    imprimeLista(l.ponteiro);
+
+    return 0;
+}
