@@ -22,6 +22,12 @@ void insere_lista(lista *l, int valor){
     //Assim, se cria um novo elemento "novo" toda vez que for dar entrada em "valor", e o elemento "novo" antigo, passa a ser "l"
 }
 
+void remove(lista *l){
+    lista *novo = (lista *)malloc(sizeof(lista));
+    while(l->ponteiro == NULL){
+        free(novo);
+    }
+}
 void remove_lista(lista *l, int valor){ 
     if(l->ponteiro == NULL){ //Se o ponteiro do elemento "l" for igual a "NULL"
         return;
@@ -99,6 +105,7 @@ int main(){
     insere_lista(&l, 55);
     insere_lista(&l, 56);
     insere_lista(&l, 57);
+    remove(l.ponteiro);
     imprime_lista(l.ponteiro);
 
     return 0;
