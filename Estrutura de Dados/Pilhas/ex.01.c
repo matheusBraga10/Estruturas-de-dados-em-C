@@ -23,12 +23,15 @@ void insere_lista(lista *l, int valor){
 }
 
 void remove_lista(lista *l){
-    if(l->ponteiro->ponteiro == NULL){
-    lista *ultimo = (lista *)malloc(sizeof(lista));
-    l->ponteiro = ultimo;
-    free(ultimo);
+    if(l->numero != NULL){
+        lista *auxiliar = (lista *)malloc(sizeof(lista));
+        auxiliar->ponteiro = l->ponteiro->ponteiro;
+        free(l->ponteiro);
+        l->ponteiro = auxiliar->ponteiro;
+        free(auxiliar);
     }
 }
+
 
 void busca_lista(lista *l, int valor){
     int i = 0;
