@@ -23,10 +23,10 @@ void insere_lista(lista *l, int valor){
 }
 
 void remove_lista(lista *l){
-    if(l->numero != NULL){
+    if(l->ponteiro->ponteiro != 0){
         lista *auxiliar = (lista *)malloc(sizeof(lista));
-        auxiliar->ponteiro = l->ponteiro->ponteiro;
-        free(l->ponteiro);
+        printf("%x, %d \n", l->ponteiro, l->numero);
+        auxiliar->ponteiro = l->ponteiro;
         l->ponteiro = auxiliar->ponteiro;
         free(auxiliar);
     }
