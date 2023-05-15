@@ -22,15 +22,18 @@ void insere_lista(lista *l, int valor){
     //Assim, se cria um novo elemento "novo" toda vez que for dar entrada em "valor", e o elemento "novo" antigo, passa a ser "l"
 }
 
-void remove_lista(lista *l){ 
-    if(l->ponteiro != NULL){
-        lista *auxiliar = (lista *)malloc(sizeof(lista));
-        l->numero = auxiliar->numero; 
-        auxiliar->ponteiro = l->ponteiro;
-        free(auxiliar);
-        
-        printf("%d\n",l->numero);
+void remove_lista(lista *cabeca, lista *l){ 
+    if(cabeca->ponteiro == NULL){
+        printf("Lista vazia\n");
+        return;
     }
+    lista *aux = (lista *)malloc(sizeof(lista));
+    aux->ponteiro = l->ponteiro;
+    l->ponteiro = l->ponteiro->ponteiro;
+    free(l->ponteiro);
+    free(aux);
+        
+    
 }
 
 void busca_lista(lista *l, int valor){
@@ -83,7 +86,7 @@ int main(){
     busca_lista(l.ponteiro, 14);
     busca_lista(l.ponteiro, 16);
 
-    remove_lista(l.ponteiro);
+    remove_lista(&l, l.ponteiro);
     imprime_lista(l.ponteiro);
 
     limpa_lista(l.ponteiro);
