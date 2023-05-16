@@ -9,10 +9,8 @@ typedef struct No{
 void imprimeLista(No *no){
     while (no != NULL){
         printf("[%d] ", no->dado);
-        no = no->proximo;
-        
+        no = no->proximo; 
     }
-    
     printf("\n");
 
 }
@@ -37,7 +35,10 @@ void remove(No *no){
         no = no->proximo;
     }
     printf("%d\n", no->dado);
-
+    No *aux = (No *)malloc(sizeof(No));
+    no->dado = aux->dado;
+    no->proximo = aux->proximo;
+    free(aux);
     
     
 }
