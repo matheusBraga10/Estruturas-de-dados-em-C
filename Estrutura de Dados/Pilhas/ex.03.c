@@ -10,8 +10,11 @@ void imprimeLista(No *no){
     while (no != NULL){
         printf("[%d] ", no->dado);
         no = no->proximo;
+        
     }
+    
     printf("\n");
+
 }
 
 void inicioLista (No *no){
