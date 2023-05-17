@@ -7,12 +7,15 @@ typedef struct No{
 }No;
 
 void imprimeLista(No *no){
+    if(no == NULL){
+        printf("Pilha Vazia\n");
+        return;
+    }
     while (no != NULL){
-        printf("[%d] ", no->dado);
+        printf("[%d]\n", no->dado);
         no = no->proximo; 
     }
-    printf("\n");
-
+    printf("\n\n");
 }
 
 void inicioLista (No *no){
@@ -21,27 +24,29 @@ void inicioLista (No *no){
 }
 
 void proximoLista (No *no, int valor){
-    while(no->proximo != NULL){
-        no = no->proximo;
-    }
     No *novo = (No *)malloc(sizeof(No));
     novo->dado = valor;
-    novo->proximo = NULL;
-    no->proximo = novo;
+    if(no->proximo == NULL){
+        novo->proximo = NULL;    
+        no->proximo = novo;
+    }
+    else{
+        novo->proximo = no->proximo;
+        no->proximo = novo;
+    }
 }
 
-void remove(No *no){
-    while(no->proximo != NULL){
-        no = no->proximo;
+void remove(No *no, No *cabeca){
+    if(no->proximo == NULL){
+        cabeca->proximo = NULL;
+
     }
-    printf("%d\n", no->dado);
-    No *aux = (No *)malloc(sizeof(No));
-    no->dado = aux->dado;
-    no->proximo = aux->proximo;
-    free(aux);
-    
-    
+    else{
+        cabeca->proximo = no->proximo;
+    }
+    free(no);
 }
+
 
 int main(){
     No no;
@@ -60,7 +65,7 @@ int main(){
     
     imprimeLista(no.proximo);
 
-    remove(no.proximo);
+    remove(no.proximo, &no);
     imprimeLista(no.proximo);
 
     return 0;

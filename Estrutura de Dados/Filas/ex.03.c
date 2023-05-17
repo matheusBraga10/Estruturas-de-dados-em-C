@@ -29,17 +29,14 @@ void proximoLista (No *no, int valor){
     no->proximo = novo;
 }
 
-void remove(No *no){
-    int valor;
-    No *novo2 = (No *)malloc(sizeof(No));
-    novo2->dado = valor;
-    novo2->proximo = NULL;
-    no->proximo = novo2;
-    if(novo2->proximo == NULL){
-        printf("remove %d \n", novo2->dado);
-        free(novo2);
-        printf(" removido %d \n", novo2->dado);
+void remove(No *no, No *cabeca){
+    if(no->proximo == NULL){
+        cabeca->proximo = NULL;
     }
+    else{
+        cabeca->proximo = no->proximo;
+    }
+    free(no);
 }
 
 int main(){
@@ -59,7 +56,7 @@ int main(){
 
     imprimeLista(no.proximo);
 
-    remove(novo.proximo);
+    remove(no.proximo, &no);
     imprimeLista(no.proximo);
 
     return 0;
