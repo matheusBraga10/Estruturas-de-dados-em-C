@@ -40,9 +40,6 @@ void criaHanoi(lista *l, pilha *p, int valor){
         l->proximo = l->proximo->proximo; 
     }
 }
-
-
-
 int main(){
 
     return 0;
